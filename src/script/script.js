@@ -1,5 +1,6 @@
 document.querySelector('#search').addEventListener('submit', async (event) =>{
     event.preventDefault();
+
     
     const cityNamehtml = document.querySelector('#city_name').value;
 
@@ -7,7 +8,7 @@ document.querySelector('#search').addEventListener('submit', async (event) =>{
         return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
 
-    const cityName =removerAcentos(cityNamehtml);
+    const cityName = removerAcentos(cityNamehtml);
     
     if(!cityName){
         document.querySelector("#weather").classList.remove('show')
@@ -22,6 +23,8 @@ document.querySelector('#search').addEventListener('submit', async (event) =>{
     console.log(json);
 
     if(json.cod === 200){
+        document.querySelector('#city_name').value = '';
+
         showInfo({
             city: json.name,
             country: json.sys.country,
