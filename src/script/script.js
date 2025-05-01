@@ -1,7 +1,13 @@
 document.querySelector('#search').addEventListener('submit', async (event) =>{
     event.preventDefault();
     
-    const cityName = document.querySelector('#city_name').value;
+    const cityNamehtml = document.querySelector('#city_name').value;
+
+    function removerAcentos(texto) {
+        return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    const cityName =removerAcentos(cityNamehtml);
     
     if(!cityName){
         document.querySelector("#weather").classList.remove('show')
