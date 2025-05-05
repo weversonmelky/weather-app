@@ -1,6 +1,9 @@
 document.querySelector('#search').addEventListener('submit', async (event) =>{
     event.preventDefault();
 
+    document.querySelector("#temp").classList.remove('day')
+    document.querySelector("#temp").classList.remove('night')
+
     
     const cityNamehtml = document.querySelector('#city_name').value;
 
@@ -17,7 +20,7 @@ document.querySelector('#search').addEventListener('submit', async (event) =>{
     }
     const apiKey = 'f57098fb099ff1a31b6cf3baa5f41985';
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(cityName)}&appid=${apiKey}&units=metric&lang=pt_br`;
-    
+    console.log(apiUrl)
     const results = await fetch(apiUrl);
     const json = await results.json();
     console.log(json);
@@ -59,7 +62,19 @@ function showInfo(json){
     document.querySelector("#temp_max").innerHTML = `${json.tempMax.toFixed(1).toString().replace('.', ',')} <sup>C°<sup>`;
     document.querySelector("#temp_min").innerHTML = `${json.tempMin.toFixed(1).toString().replace('.', ',')} <sup>C°<sup>`;
     document.querySelector("#humidity").innerHTML = `${json.humidity}%`;
-    document.querySelector("#wind").innerHTML = `${json.windSpeed.toFixed(1)}km/h`;  
+    document.querySelector("#wind").innerHTML = `${json.windSpeed.toFixed(1)}km/h`;
+    
+    console.log(json.tempIcon)
+
+    if(json.tempIcon.includes("n")){
+        console.log("esta de noite")
+        document.querySelector("#temp").classList.add('nigth')
+    }else if(json.tempIcon.includes("d")){
+        console.log("esta de dia")
+
+        document.querySelector("#temp").classList.add('day')
+
+    }
     
 }
 
