@@ -1,10 +1,10 @@
-document.querySelector('#search').addEventListener('submit', async (event) =>{
+document.querySelector('#search').addEventListener('submit', async (event) => {
     event.preventDefault();
 
     document.querySelector("#temp").classList.remove('day')
     document.querySelector("#temp").classList.remove('night')
 
-    
+
     const cityNamehtml = document.querySelector('#city_name').value;
 
     function removerAcentos(texto) {
@@ -12,8 +12,8 @@ document.querySelector('#search').addEventListener('submit', async (event) =>{
     }
 
     const cityName = removerAcentos(cityNamehtml);
-    
-    if(!cityName){
+
+    if (!cityName) {
         document.querySelector("#weather").classList.remove('show')
 
         return showAlert('Você precisa digitar uma cidade...')
@@ -25,7 +25,7 @@ document.querySelector('#search').addEventListener('submit', async (event) =>{
     const json = await results.json();
     console.log(json);
 
-    if(json.cod === 200){
+    if (json.cod === 200) {
         document.querySelector('#city_name').value = '';
 
         showInfo({
@@ -37,10 +37,10 @@ document.querySelector('#search').addEventListener('submit', async (event) =>{
             description: json.weather[0].description,
             tempIcon: json.weather[0].icon,
             windSpeed: json.wind.speed,
-            humidity:json.main.humidity,
+            humidity: json.main.humidity,
         });
 
-    }else{
+    } else {
         document.querySelector("#weather").classList.remove('show')
 
         showAlert(`
@@ -50,7 +50,7 @@ document.querySelector('#search').addEventListener('submit', async (event) =>{
     }
 });
 
-function showInfo(json){
+function showInfo(json) {
     showAlert('')
 
     document.querySelector("#weather").classList.add('show')
@@ -63,22 +63,22 @@ function showInfo(json){
     document.querySelector("#temp_min").innerHTML = `${json.tempMin.toFixed(1).toString().replace('.', ',')} <sup>C°<sup>`;
     document.querySelector("#humidity").innerHTML = `${json.humidity}%`;
     document.querySelector("#wind").innerHTML = `${json.windSpeed.toFixed(1)}km/h`;
-    
+
     console.log(json.tempIcon)
 
-    if(json.tempIcon.includes("n")){
+    if (json.tempIcon.includes("n")) {
         console.log("esta de noite")
         document.querySelector("#temp").classList.add('nigth')
-    }else if(json.tempIcon.includes("d")){
+    } else if (json.tempIcon.includes("d")) {
         console.log("esta de dia")
 
         document.querySelector("#temp").classList.add('day')
 
     }
-    
+
 }
 
-function showAlert(msg){
+function showAlert(msg) {
     document.querySelector('#alert').innerHTML = msg;
 
 

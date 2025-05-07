@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,7 +15,7 @@ body{
     background: linear-gradient(#5f2ada, #9b4aff);
 }
 
-#container{
+#container {
     background-color: #f0f8ff;
     border-radius: 20px;
     padding: 18px;
@@ -23,7 +23,7 @@ body{
 }
 
 
-#search{
+#search {
     display: flex;
     align-items: center;
     gap: 9px;
@@ -32,40 +32,40 @@ body{
     padding: 4px 12px;
 }
 
-#search input{
+#search input {
     border: none;
     background-color: transparent;
     font-size: 16px;
     width: 100%;
 }
 
-#search input:focus-visible{
+#search input:focus-visible {
     outline: none;
 }
 
-#search button{
+#search button {
     background-color: transparent;
     border: none;
     cursor: pointer;
 }
 
-#weather{
+#weather {
     display: none;
     margin-top: 20px;
 }
 
-#weather.show{
+#weather.show {
     display: block;
 }
 
-#weather #title{
+#weather #title {
     text-align: center;
     margin-bottom: 5px;
     font-weight: 600;
     color: #372f3f;
 }
 
-#temp{
+#temp {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -75,38 +75,38 @@ body{
     padding: 20px;
 }
 
-.nigth{
+.nigth {
     background: linear-gradient(90deg, #3739af, #323973);
 }
 
-.day{
+.day {
     background: linear-gradient(90deg, #5a7cdc, #606dde);
 }
 
-#temp_img{
-    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2));
+#temp_img {
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
 }
 
 
-#temp_value{
+#temp_value {
     font-weight: bold;
     font-size: 50px;
     line-height: 55px;
 }
 
-#temp_description{
+#temp_description {
     font-weight: 500;
     text-transform: capitalize;
 }
 
-#other_infos{
+#other_infos {
     margin-top: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
-#other_infos .info{
+#other_infos .info {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -118,12 +118,12 @@ body{
 }
 
 
-#other_infos .infos h2{
+#other_infos .infos h2 {
     font-size: 12px;
     font-weight: 600;
 }
 
-#other_infos .infos i{
+#other_infos .infos i {
     text-align: center;
     font-size: 20px;
     width: 20%;
@@ -145,13 +145,13 @@ body{
     color: #7c3aed;
 }
 
-#alert{
+#alert {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#alert img{
+#alert img {
     width: 200px;
     margin-top: 20px;
 }
